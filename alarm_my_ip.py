@@ -1,8 +1,13 @@
-import requests
+import json
+
 import ipgetter
+import requests
+
+with open('config.json') as f:
+    config = json.load(f)
 
 ip = ipgetter.myip()
 requests.post('https://alarmerbot.ru/', data={
-    'key': '892d3f-68a710-b8344a',
-    'message': 'Buhanka\'s IP is: {}'.format(ip)
+    'key': config['api_key'],
+    'message': '{}\'s IP is: {}'.format(config['server_name'], ip)
 })

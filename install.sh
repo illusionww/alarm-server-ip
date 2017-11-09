@@ -52,7 +52,7 @@ $cron_string python3 $current_dir/alarm_my_ip.py
 will be added to crontab. Continue (Y/n)? " yn_cronstring_right
         if [ "$yn_cronstring_right" == "Y" ]; then
             crontab -l > mycron
-            echo "$cron_string python3 $current_dir/alarm_my_ip.py"  >> mycron
+            echo "$cron_string $current_dir/run.sh"  >> mycron
             crontab mycron
             rm mycron
             break;
